@@ -26,15 +26,15 @@ export const LoginPage = () => {
               <>
                 <li
                   className={`text-left ${
-                    !item.completed ? 'text-decoration-line-through' : ''
+                    item.completed ? 'text-decoration-line-through' : ''
                   }`}
                   key={item.id}
                 >
                   {item.title}
                 </li>
                 <button
-                  className={`btn btn-primary ${
-                    !item.completed ? 'disabled' : ''
+                  className={`btn  ${
+                    item.completed ? 'btn-success' : 'btn-primary'
                   }`}
                   onClick={() => onChangeEstate(item.id)}
                 >
