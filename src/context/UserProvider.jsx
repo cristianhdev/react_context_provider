@@ -15,6 +15,7 @@ export const UserProvider = ({ children }) => {
       setInfo(response);
     };
     fetchLoad();
+    console.log('data');
   }, []);
 
   return <UserContext.Provider value={info}>{children}</UserContext.Provider>;

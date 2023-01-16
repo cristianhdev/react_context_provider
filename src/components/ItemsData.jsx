@@ -5,7 +5,6 @@ export const ItedmData = () => {
 
   let itemListComponents = null;
   const data = useContext(UserContext);
-  console.log('data', data);
 
   useEffect(() => {}, [data]);
 
