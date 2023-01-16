@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState, useMemo } from 'react';
-
-export const ItedmData = ({ data }) => {
+import { UserContext } from '../context/UserContext';
+export const ItedmData = () => {
   const [dataItems, setDataItem] = useState([]);
 
   let itemListComponents = null;
+  const data = useContext(UserContext);
+  console.log('data', data);
 
   useEffect(() => {}, [data]);
 
