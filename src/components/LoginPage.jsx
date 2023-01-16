@@ -1,66 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useMemo } from 'react';
 import { UserContext } from '../context/UserContext';
-import { data } from '../data/datadb';
+import { ItedmData } from './ItemsData';
 
 export const LoginPage = () => {
-  const [dataItem, setDataItem] = useState([]);
-  let itemListComponents = null;
-
-  const onChangeEstate = (id) => {
-    console.log(id);
-
-    let item = dataItem.find((item) => item.id === id);
-    item.completed = !item.completed;
-    setDataItem({
-      ...dataItem,
-      item,
-    });
-  };
-
-  if (data.length != 0) {
-    itemListComponents = (
-      <div>
-        <ul>
-          {data.map((item) => {
-            return (
-              <>
-                <li
-                  className={`text-left ${
-                    item.completed ? 'text-decoration-line-through' : ''
-                  }`}
-                  key={item.id}
-                >
-                  {item.title}
-                </li>
-                <button
-                  className={`btn  ${
-                    item.completed ? 'btn-success' : 'btn-primary'
-                  }`}
-                  onClick={() => onChangeEstate(item.id)}
-                >
-                  completado
-                </button>
-              </>
-            );
-          })}
-        </ul>
-        <div></div>
-      </div>
-    );
-  }
-
-  const { title } = useContext(UserContext);
-  console.log('title', title);
-
-  useEffect(() => {
-    console.log(data);
-    setDataItem(data);
-  }, [dataItem]);
+  const data = useContext(UserContext);
+  console.log('data', data);
 
   return (
     <>
-      <h1>Login Page {title}</h1>
-      {itemListComponents}
+      <h1>Login Page</h1>
+      <ItedmData data={data} />
     </>
   );
 };
