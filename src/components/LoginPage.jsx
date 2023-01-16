@@ -50,7 +50,7 @@ export const LoginPage = () => {
   }
 
   const { title } = useContext(UserContext);
-  console.log(title);
+  console.log('title', title);
 
   useEffect(() => {
     console.log(data);
@@ -61,7 +61,6 @@ export const LoginPage = () => {
     <>
       <h1>Login Page {title}</h1>
       {itemListComponents}
-      {/* <pre>{JSON.stringify(info, null, 2)}</pre> */}
     </>
   );
 };
